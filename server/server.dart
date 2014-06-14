@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'dart:async';
+import 'dart:convert';
 
 import 'package:redstone/server.dart' as app;
 import 'package:mongo_dart/mongo_dart.dart';
@@ -57,7 +58,7 @@ class Todo {
     var itemsColl = conn.collection(collectionName);
     itemsColl.find().toList().then((List<Map> items) {
       logger.info("Found ${items.length} item(s)");
-      return items;
+      return JSON.encode(items);
     }).catchError((e) {
       logger.warning("Unable to find any items: $e");
       return [];
