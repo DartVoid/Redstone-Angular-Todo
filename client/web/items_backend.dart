@@ -13,6 +13,8 @@ class ItemsBackend {
 //    _http.get('http://${appname}.${username}.dartblob.com/todos').then((HttpResponse res) {
     _http.get('/todos/list').then((HttpResponse res) {
       
+      print(res.status);
+      print(res.responseText);
       print(res.data);
       
 //      res.data.forEach((item) {
