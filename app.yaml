@@ -1,0 +1,13 @@
+name: Redstone-Angular-Todo
+framework: redstone
+
+handlers:
+# Backend service
+- url: /todos
+  script: server.dart
+
+# Static content served by Nginx 
+- url: /
+  match: postregex
+  static_dir: web
+

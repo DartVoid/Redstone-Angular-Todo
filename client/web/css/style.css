@@ -1,0 +1,58 @@
+body {
+  height: 100%;
+  background-color: #F8F8F8;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.content {
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1em;
+  padding-right: 1em;
+  max-width: 768px;
+}
+
+.content-offset {
+  margin-top: 10px; 
+}
+
+.well {
+  background-color: #fff;
+  padding: 1em;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  border-radius: 3px;
+}
+
+.ng-hide {
+  display: none;
+}
+
+[ng-cloak] {
+  display: none;
+}
+
+.border {
+  width: 360px;
+  margin: 20px auto;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.loading {
+  text-align: center;
+  font-weight: bold;
+  font-size: 16px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+.done {
+  background: green;
+}
+
+.pure-button {
+  float: right;
+  max-width: 96%;
+}
+
