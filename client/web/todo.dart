@@ -1,4 +1,4 @@
-part of client;
+part of main;
 
 @Controller(
     selector: '[todo-controller]',

@@ -1,4 +1,4 @@
-part of client;
+part of main;
 
 // Backend class that communicates with the backend and hold the items list  
 @Injectable()
