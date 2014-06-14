@@ -58,7 +58,8 @@ class Todo {
     var itemsColl = conn.collection(collectionName);
     itemsColl.find().toList().then((List<Map> items) {
       logger.info("Found ${items.length} item(s)");
-      return JSON.encode(items);
+      print(items);
+      return items;
     }).catchError((e) {
       logger.warning("Unable to find any items: $e");
       return [];
