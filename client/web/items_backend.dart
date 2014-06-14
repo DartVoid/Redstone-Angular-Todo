@@ -12,9 +12,14 @@ class ItemsBackend {
     // Make request to get a list of all todo items
 //    _http.get('http://${appname}.${username}.dartblob.com/todos').then((HttpResponse res) {
     _http.get('/todos/list').then((HttpResponse res) {
-      res.data.forEach((item) {
-        data.add(new Item.fromJson(item));
-      });
+      
+      print(res.data);
+      
+//      res.data.forEach((item) {
+//        data.add(new Item.fromJson(item));
+//      });
+    }).catchError((error) {
+      print("Got error $error");
     }); 
   }
   
