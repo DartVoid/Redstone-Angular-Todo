@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Redstone Todo</title>
+    
+    <!-- Pure CSS plus pure css extras -->
+    <link rel="stylesheet" type="text/css" href="css/pure-min.css">
+    <link rel="stylesheet" type="text/css" href="css/pure-extras.css">
+    
+    <!-- Own stylesheets -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" href="css/todo.css">
+  </head>
+<body ng-app>
+
+  <div ng-hide="true" class="border well loading">Wait, Dart is loading this awesome app...</div>
+
+  <div todo-controller class="pure-g-r content content-offset" ng-cloak>
+    <div class="pure-u-1-1 well">
+      <h1>Todo list</h1>
+      <p>Remaining <b>{{todo.remaining()}}</b> of <b>{{todo.items.length}}</b> items.</p>
+    </div>
+    
+    <!-- Input buttons -->
+    <div id="input-box" class="pure-u-1-1 well">
+      <form class="pure-form pure-g">
+        <div class="pure-u-16-24">
+          <input type="text" class="pure-input-1" placeholder="Enter a new todo item here" ng-model="todo.newItem.text">
+        </div>
+        <div class="pure-u-4-24">
+          <button ng-click="todo.add()" ng-disabled="todo.newItem.isEmpty" class="pure-button pure-button-primary pure-input-1">Add todo</button>
+        </div>
+        <div class="pure-u-4-24">
+          <button ng-click="todo.newItem.clear()" ng-disabled="todo.newItem.isEmpty" class="pure-button pure-button-secondary pure-input-1">Clear</button>
+        </div>
+      </form>
+    </div>
+    
+    <!-- List of todo items -->
+    <div class="pure-u-1-1 well" ng-repeat="item in todo.items" ng-class="todo.classFor(item)">
+      <form class="pure-form pure-g">
+        <div class="pure-u-16-24">
+          <input type="text" class="pure-input-1" ng-model="item.text">
+        </div>
+        <div class="pure-u-4-24">
+          <button ng-click="todo.done($index)" class="pure-button pure-button-success pure-input-1">Done</button>
+        </div>
+        <div class="pure-u-4-24">
+          <button ng-click="todo.delete($index)" class="pure-button pure-button-error pure-input-1">Delete</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Dart -->
+  <script type="application/dart" src="main.dart"></script>
+  <script src="packages/browser/dart.js"></script>
+</body>
+</html>
+
