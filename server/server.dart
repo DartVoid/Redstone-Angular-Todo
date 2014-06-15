@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'dart:async';
-import 'dart:convert';
 
 import 'package:redstone/server.dart' as app;
 import 'package:mongo_dart/mongo_dart.dart';
@@ -8,7 +7,6 @@ import 'package:connection_pool/connection_pool.dart';
 import 'package:di/di.dart';
 import 'package:logging/logging.dart';
 
-//import '../client/web/lib/item.dart';
 import 'package:client/client.dart' show Item;
 
 // Setup application log
@@ -16,20 +14,20 @@ var logger = new Logger("todo");
 
 /// Create a connection pool for MongoDB
 class MongoDbPool extends ConnectionPool<Db> {
-  String uri;
+String uri;
 
-  MongoDbPool(String this.uri, int poolSize) : super(poolSize);
+MongoDbPool(String this.uri, int poolSize) : super(poolSize);
 
-  @override
-  void closeConnection(Db conn) {
-    conn.close();
-  }
+@override
+void closeConnection(Db conn) {
+  conn.close();
+}
 
-  @override
-  Future<Db> openNewConnection() {
-    var conn = new Db(uri);
-    return conn.open().then((_) => conn);
-  }
+@override
+Future<Db> openNewConnection() {
+  var conn = new Db(uri);
+  return conn.open().then((_) => conn);
+}
 }
 
 /// Init database connection
@@ -56,9 +54,8 @@ class Todo {
     logger.info("List items");
     
     var itemsColl = conn.collection(collectionName);
-    itemsColl.find().toList().then((List<Map> items) {
+    return itemsColl.find().toList().then((items) {
       logger.info("Found ${items.length} item(s)");
-      print(items);
       return items;
     }).catchError((e) {
       logger.warning("Unable to find any items: $e");
@@ -75,7 +72,7 @@ class Todo {
     
     // Add item to database 
     var itemsColl = conn.collection(collectionName);
-    itemsColl.insert(newItem.toJson()).then((dbRes) {
+    return itemsColl.insert(newItem.toJson()).then((dbRes) {
       logger.info("Mongodb: $dbRes");
       return "ok";
     }).catchError((e) {
@@ -92,7 +89,7 @@ class Todo {
     
     // Update item in database
     var itemsColl = conn.collection(collectionName);
-    itemsColl.update({"id": updatedItem.id}, updatedItem.toJson()).then((dbRes) {
+    return itemsColl.update({"id": updatedItem.id}, updatedItem.toJson()).then((dbRes) {
       logger.info("Mongodb: ${dbRes}");
       return "ok";
     }).catchError((e) {
@@ -107,7 +104,7 @@ class Todo {
     
     // Remove item from database 
     var itemsColl = conn.collection(collectionName);
-    itemsColl.remove({"id": id}).then((dbRes) {
+    return itemsColl.remove({"id": id}).then((dbRes) {
       logger.info("Mongodb: $dbRes");
       return "ok";
     }).catchError((e) {
