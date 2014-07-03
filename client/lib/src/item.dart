@@ -1,47 +1,20 @@
 part of client;
 
-class Item {
+class Item extends Schema {
+  
+  @Id()
   String id;
-  String text = "";
-  bool done = false;
-  bool archived = false;
   
-  static UuidBase uuid = new UuidBase();
+  @Field()
+  @NotEmpty()
+  String text;
   
-  Item([this.text, this.done, this.archived, id]) {
-    if(id == null) {
-      this.id = uuid.v1();
-    } else {
-      this.id = id;
-    }
-  }
-
-  bool get isEmpty {
-    if(text == null) {
-      return false;
-    } else {
-      return text.isEmpty;
-    }
-  }
-
-  Item clone() => new Item(text, done, archived, id);
-
-  void clear() {
-    print("Inside clear()");
-    text = '';
-    done = false;
-    archived = false;
-  }
+  @Field()
+  bool done;
   
-  Item.fromJson(Map json) {
-    id = json["id"];
-    text = json["text"];
-    done = json["done"];
-    archived = json["archived"];
-  }
+  Item([this.id, this.text = "", this.done = false]);
   
-  Map toJson() {
-    return {"id": id, "text": text, "done": done, "archived": archived};
-  }
+  String toString() => "Item($id, $text, $done)";
+  
 }
 

@@ -30,10 +30,10 @@
           <input type="text" class="pure-input-1" placeholder="Enter a new todo item here" ng-model="todo.newItem.text">
         </div>
         <div class="pure-u-4-24">
-          <button ng-click="todo.add()" ng-disabled="todo.newItem.isEmpty" class="pure-button pure-button-primary pure-input-1">Add todo</button>
+          <button ng-click="todo.add()" ng-disabled="todo.isEmpty" class="pure-button pure-button-primary pure-input-1">Add todo</button>
         </div>
         <div class="pure-u-4-24">
-          <button ng-click="todo.newItem.clear()" ng-disabled="todo.newItem.isEmpty" class="pure-button pure-button-secondary pure-input-1">Clear</button>
+          <button ng-click="todo.clear()" ng-disabled="todo.isEmpty" class="pure-button pure-button-secondary pure-input-1">Clear</button>
         </div>
       </form>
     </div>
@@ -45,10 +45,10 @@
           <input type="text" class="pure-input-1" ng-model="item.text">
         </div>
         <div class="pure-u-4-24">
-          <button ng-click="todo.done($index)" class="pure-button pure-button-success pure-input-1">Done</button>
+          <button ng-click="todo.done(item)" class="pure-button pure-button-success pure-input-1">Done</button>
         </div>
         <div class="pure-u-4-24">
-          <button ng-click="todo.delete($index)" class="pure-button pure-button-error pure-input-1">Delete</button>
+          <button ng-click="todo.delete(item)" class="pure-button pure-button-error pure-input-1">Delete</button>
         </div>
       </form>
     </div>

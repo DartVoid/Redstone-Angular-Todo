@@ -17,18 +17,14 @@ packages:
     description: barback
     source: hosted
     version: "0.13.0"
-  bignum:
-    description: bignum
-    source: hosted
-    version: "0.0.5"
   browser:
     description: browser
     source: hosted
     version: "0.10.0+2"
-  cipher:
-    description: cipher
+  bson:
+    description: bson
     source: hosted
-    version: "0.7.1"
+    version: "0.1.18"
   code_transformers:
     description: code_transformers
     source: hosted
@@ -37,6 +33,10 @@ packages:
     description: collection
     source: hosted
     version: "0.9.3+1"
+  connection_pool:
+    description: connection_pool
+    source: hosted
+    version: "0.1.0+2"
   crypto:
     description: crypto
     source: hosted
@@ -45,14 +45,22 @@ packages:
     description: di
     source: hosted
     version: "0.0.40"
-  fixnum:
-    description: fixnum
+  grinder:
+    description: grinder
     source: hosted
-    version: "0.9.0"
+    version: "0.5.4"
   html5lib:
     description: html5lib
     source: hosted
     version: "0.10.0"
+  http:
+    description: http
+    source: hosted
+    version: "0.11.1+1"
+  http_parser:
+    description: http_parser
+    source: hosted
+    version: "0.0.2+3"
   intl:
     description: intl
     source: hosted
@@ -65,6 +73,22 @@ packages:
     description: matcher
     source: hosted
     version: "0.10.1+1"
+  mime:
+    description: mime
+    source: hosted
+    version: "0.9.0+3"
+  mongo_dart:
+    description: mongo_dart
+    source: hosted
+    version: "0.1.42"
+  mongo_dart_query:
+    description: mongo_dart_query
+    source: hosted
+    version: "0.1.12"
+  more:
+    description: more
+    source: hosted
+    version: "1.2.1"
   path:
     description: path
     source: hosted
@@ -73,10 +97,30 @@ packages:
     description: perf_api
     source: hosted
     version: "0.0.8"
+  quiver:
+    description: quiver
+    source: hosted
+    version: "0.18.2"
+  redstone:
+    description: redstone
+    source: hosted
+    version: "0.5.5+1"
+  redstone_mapper:
+    description: redstone_mapper
+    source: hosted
+    version: "0.1.1"
+  redstone_mapper_mongo:
+    description: redstone_mapper_mongo
+    source: hosted
+    version: "0.1.1+1"
   route_hierarchical:
     description: route_hierarchical
     source: hosted
     version: "0.4.21"
+  shelf:
+    description: shelf
+    source: hosted
+    version: "0.5.4+1"
   source_maps:
     description: source_maps
     source: hosted
@@ -85,6 +129,10 @@ packages:
     description: stack_trace
     source: hosted
     version: "0.9.3+2"
+  string_scanner:
+    description: string_scanner
+    source: hosted
+    version: "0.0.2"
   unittest:
     description: unittest
     source: hosted
@@ -93,10 +141,6 @@ packages:
     description: utf
     source: hosted
     version: "0.9.0"
-  uuid:
-    description: uuid
-    source: hosted
-    version: "0.3.2"
   web_components:
     description: web_components
     source: hosted
