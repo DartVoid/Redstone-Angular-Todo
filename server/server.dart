@@ -28,6 +28,7 @@ class Todo extends MongoDbService<Item>{
   }
 
   @app.Route('/add', methods: const [app.POST])
+  @Encode()
   add(@Decode() Item item) {
     logger.info("Add new item");
     
