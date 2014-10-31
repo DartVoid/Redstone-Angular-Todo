@@ -11,5 +11,6 @@ dev_dependencies:
    
 transformers:
   - redstone_mapper
-  - angular
+  - angular:
+      dart_sdk: "/dart-sdk/latest"
 
