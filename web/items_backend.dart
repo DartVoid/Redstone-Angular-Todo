@@ -17,7 +17,7 @@ class ItemsBackend {
   Future<List<Item>> getAll() {
     // Make request to get a list of all todo items
     return _http.get('${_baseUrl}/todos/list').then((res) {
-      return decode(res.body, Item);
+      return decodeJson(res.body, Item);
     }).catchError((error) {
       print("Got error $error");
     });
@@ -27,20 +27,22 @@ class ItemsBackend {
     print("In backend.add");
 
     // Make request to add new item to database
-    return _http.post("${_baseUrl}/todos/add", body: JSON.encode(encode(item)))
-      .catchError((error) {
-        print("Got error $error");
-      });
+    return _http.post("${_baseUrl}/todos/add", body: encodeJson(item), headers: {
+        "content-type": "application/json"
+    }).catchError((error) {
+      print("Got error $error");
+    });
   }
 
   Future update(Item item) {
     print("In backend.update");
 
     // Make request to update item
-    return _http.put("${_baseUrl}/todos/update", body: JSON.encode(encode(item)))
-      .catchError((error) {
-        print("Got error $error");
-      });
+    return _http.put("${_baseUrl}/todos/update", body: encodeJson(item), headers: {
+        "content-type": "application/json"
+    }).catchError((error) {
+      print("Got error $error");
+    });
   }
 
   Future delete(Item item) {
@@ -48,9 +50,8 @@ class ItemsBackend {
 
     // Make request to delete item
     return _http.delete("${_baseUrl}/todos/delete/${item.id}")
-      .catchError((error) {
-        print("Got error $error");
-      });
+    .catchError((error) {
+      print("Got error $error");
+    });
   }
 }
-

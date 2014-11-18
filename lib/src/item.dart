@@ -1,4 +1,4 @@
-part of client;
+part of todo_client;
 
 class Item extends Schema {
   @Id()
